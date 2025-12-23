@@ -926,6 +926,7 @@ tar xzf ./actions-runner-linux-x64-2.311.0.tar.gz
 **แบบ Interactive (สำหรับทดสอบ):**
 
 ```bash
+# รันคำสั่ง เพื่อรันสคริปส์
 ./run.sh
 ```
 
@@ -938,8 +939,8 @@ Current runner version: '2.311.0'
 2024-12-23 10:00:00Z: Listening for Jobs
 ```
 
-**แบบ Service (รันอัตโนมัติ):**
-
+**แบบ Service (รันอัตโนมัติ):** 
+** ไม่ต้องทดลองในส่วนนี้ **
 ```bash
 # Install service
 sudo ./svc.sh install
@@ -1224,7 +1225,7 @@ watch -n 10 ./monitor.sh
 </details>
 
 
-### 5. nginx คืออะไร และการทำ Revers Proxy ใน nginx มีความสำคัญอย่างไร
+### 5. Nginx คืออะไร และการทำ Revers Proxy ใน Nginx มีความสำคัญอย่างไร
 <details>
 <summary>คำตอบ</summary>
 
