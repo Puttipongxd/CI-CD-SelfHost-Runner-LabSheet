@@ -1197,8 +1197,12 @@ watch -n 10 ./monitor.sh
 <summary>คำตอบ</summary>
 
  เขียนคำตอบลงในช่องนี้
-
-
+Pull-based Model คือรูปแบบการทำงานของ GitHub Self-Hosted Runner ที่ตัว Runner จะเป็นฝ่าย เชื่อมต่อออกไป (Outbound Connection) เพื่อดึงงาน (Job) จาก GitHub เอง แทนที่ GitHub จะส่งงานเข้ามาหา Runner โดยตรง
+ข้อดี:
+ไม่ต้องเปิดพอร์ตจากภายนอกเข้ามาในเครื่อง Runner
+ลดความเสี่ยงด้านความปลอดภัยจากการโจมตีแบบ Inbound
+Runner ทำงานได้หลัง Firewall หรือ NAT
+ควบคุมการเริ่ม–หยุดการทำงานของ Runner ได้จากฝั่งเครื่องตนเอง
 </details>
 
 ### 2. ทำไม Pull-based ปลอดภัยกว่า Push-based
@@ -1207,7 +1211,11 @@ watch -n 10 ./monitor.sh
 <summary>คำตอบ</summary>
 
  เขียนคำตอบลงในช่องนี้
-
+Pull-based ปลอดภัยกว่า Push-based เพราะ Runner เป็นฝ่ายร้องขอ Job จาก GitHub เอง ทำให้:
+ไม่มีการเปิดพอร์ตหรือรับคำสั่งจากภายนอกโดยตรง
+ลดโอกาสถูกโจมตีจากบุคคลที่ไม่พึงประสงค์
+GitHub ไม่สามารถรันโค้ดบนเครื่อง Runner ได้ เว้นแต่ Runner จะยอมดึงงานมาเอง
+เหมาะกับระบบที่อยู่หลัง Firewall และระบบภายในองค์กร
 
 </details>
 
@@ -1217,7 +1225,11 @@ watch -n 10 ./monitor.sh
 <summary>คำตอบ</summary>
 
  เขียนคำตอบลงในช่องนี้
-
+npm ci ถูกออกแบบมาเพื่อใช้ในสภาพแวดล้อม Production และ CI/CD โดยเฉพาะ เพราะ:
+ติดตั้ง dependencies ตาม package-lock.json แบบ 100% ทำให้ผลลัพธ์คงที่
+เร็วกว่า npm install เพราะไม่คำนวณ dependency ใหม่
+ลบ node_modules เดิมก่อนติดตั้ง ลดปัญหาความไม่สอดคล้อง
+ป้องกันการเปลี่ยนเวอร์ชัน dependency โดยไม่ตั้งใจ
 
 </details>
 
@@ -1227,7 +1239,12 @@ watch -n 10 ./monitor.sh
 <summary>คำตอบ</summary>
 
  เขียนคำตอบลงในช่องนี้
-
+ห้ามใช้ Self-Hosted Runner กับ Public Repository เพราะ:
+ใครก็สามารถส่ง Pull Request เข้ามาได้
+โค้ดอันตรายอาจถูกรันบนเครื่อง Runner โดยตรง
+เสี่ยงต่อการถูกขโมย Secret, Token และข้อมูลภายในระบบ
+อาจถูกใช้เป็นช่องทางโจมตีระบบภายในองค์กร
+ดังนั้น Self-Hosted Runner ควรใช้กับ Private Repository เท่านั้น
 
 </details>
 
@@ -1237,7 +1254,12 @@ watch -n 10 ./monitor.sh
 <summary>คำตอบ</summary>
 
  เขียนคำตอบลงในช่องนี้
-
+Nginx คือ Web Server และ Reverse Proxy ที่มีประสิทธิภาพสูง ใช้จัดการการรับ–ส่ง HTTP/HTTPS ระหว่างผู้ใช้และ Backend Server
+ความสำคัญของ Reverse Proxy:
+ซ่อนโครงสร้าง Backend เพิ่มความปลอดภัย
+ทำ Load Balancing กระจายโหลดไปหลายเซิร์ฟเวอร์
+จัดการ HTTPS/SSL ได้จากจุดเดียว
+เพิ่มประสิทธิภาพและความเสถียรของระบบ
 
 </details>
 ---
