@@ -1072,7 +1072,7 @@ Current runner version: '2.330.0'
 3. Label ควรมี: `self-hosted`, `Windows`, `X64`
 
 ### บันทึกรูปผลการทดลอง
-
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2ca3132f-c320-4e99-ac1a-5b1427a68ac0" />
 ```
 บันทึกรูปหน้า Runners โดยคัดลอกให้เห็น Account ของ GitHub และ Repository
 และแสดง Runner status เป็น "Idle" สีเขียว
@@ -1163,6 +1163,7 @@ docker logs nodejs-selfhosted-app
 ```
 
 ### บันทึกผลการรันคำสั่ง docker logs nodejs-selfhosted-app
+<img width="1004" height="195" alt="image" src="https://github.com/user-attachments/assets/29e92bd9-788c-45f5-973a-3a814d2f8815" />
 
 ```txt
 บันทึกรูปผลการรันคำสั่ง
@@ -1257,7 +1258,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ### บันทึกผลการรัน monitor.ps1
-
+<img width="1125" height="633" alt="image" src="https://github.com/user-attachments/assets/1ec08a1d-70e4-43b5-8984-b34f9f9d8937" />
 ```txt
 บันทึกรูปผลการรันคำสั่ง
 ```
